@@ -30,4 +30,8 @@ if __name__ == '__main__':
     server_port = int(sys.argv[2])
     filename = sys.argv[3]
     c = Client(server_host, server_port)
-    c.send_request(filename)
+    start = input('Start ? (y/n)')
+    print(start)
+    if start == 'y':
+      c.send_request(filename)
+    c.client.close()

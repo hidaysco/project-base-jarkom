@@ -23,6 +23,8 @@ class ThreadedServer():
       client_sock.send('\r\n'.encode())
     except IOError or FileNotFoundError:
       client_sock.send('HTTP/1.1 404 Not Found\r\n\r\n'.encode())
+    except IndexError:
+      print('[CLOSING CONNECTION]')
     finally:  
       print(f'[CLOSED]: {client_address}')
       client_sock.close()
